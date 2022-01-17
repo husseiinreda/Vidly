@@ -8,14 +8,7 @@ const valid = require('../middleware/validate');
 
 
 router.get('/',async(req,res,next)=>{
-    try{
-        //await Promise.reject();
-        res.send(await Genre.find());
-    }
-    catch(ex){
-        //something wrong here
-        next(ex);
-    }
+    res.send(await Genre.find());
 });
 
 router.post('/',[auth,valid(validate)],async(req,res)=>{
